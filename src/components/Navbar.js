@@ -1,10 +1,11 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Burgermenu from "./Burgermenu";
 import { FaBars, FaTimes } from "react-icons/fa";
+import "./Navbar.css";
 
 function NavbarComponent() {
   const navRef = useRef();
@@ -12,13 +13,23 @@ function NavbarComponent() {
     console.log(event.target.value);
     navRef.current.classList.toggle("collapse");
   };
+
+  // Change navbar color while scrolling
+  const [headerBgColor, setHeaderBgColor] = useState(false);
+  const changeColor = ()=>{
+    if (window.scrollY >= 90){
+      setHeaderBgColor(true);
+    }else {setHeaderBgColor(false);}
+  }
+
+  window.addEventListener('scroll', changeColor);
   return (
-    <Navbar bg="light" variant="light" expand="lg" scrolling="dark" fixed="top">
-      <Container align="end">
+    <Navbar className={headerBgColor ? 'header-bg-scrolling' :'header-bg'} variant="dark" expand="lg" scrolling="dark" fixed="top">
+      <Container >
         <Navbar.Brand href="#home">Uras Oran</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
+        <Navbar.Collapse id="basic-navbar-nav" align="end" >
+          <Nav className="ml-auto" >
             <Nav.Link href="#about">About</Nav.Link>
             <Nav.Link href="#portfolio">Portfolio</Nav.Link>
             <Nav.Link href="#contact">Contact</Nav.Link>
