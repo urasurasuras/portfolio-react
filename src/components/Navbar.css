@@ -1,6 +1,26 @@
+:root{
+    --fade-duration: 0.5s;
+}
 .header-bg{
     background-color: rgba(255, 255, 255, 0);
+    -webkit-transition: all var(--fade-duration) ease-in-out;
+    -moz-transition: all var(--fade-duration) ease-in-out;
+    -o-transition: all var(--fade-duration) ease-in-out;
+    transition: all var(--fade-duration) ease-in-out;
 }
 .header-bg-scrolling{
-    background-color: rgba(0, 106, 255, 1);
+    background-color: black;
+    -webkit-transition: all var(--fade-duration) ease-in-out;
+    -moz-transition: all var(--fade-duration) ease-in-out;
+    -o-transition: all var(--fade-duration) ease-in-out;
+    transition: all var(--fade-duration) ease-in-out;
 }
+/* .header-bg {
+    /* background-color: rgb(137, 13, 13); */
+    /* color: purple;
+  }
+
+  .header-bg-scrolling {
+    padding: 1rem 1.5rem;
+    font-size: 1.5rem;
+  } */ 

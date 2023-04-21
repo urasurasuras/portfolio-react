@@ -18,15 +18,20 @@ function NavbarComponent() {
   const [headerBgColor, setHeaderBgColor] = useState('rgba(0 0 0 / 1)');
   const [colorAlpha, setColorAlpha] =useState(0);
   const changeColor = ()=>{
-    setColorAlpha((window.scrollY - 90) /200);
-    console.log(colorAlpha);
-    setHeaderBgColor('rgba(0 0 0 / '+ colorAlpha+')');
+    // setColorAlpha((window.scrollY - 90) /200);
+    // console.log(colorAlpha);
+    // setHeaderBgColor('rgba(0 0 0 / '+ colorAlpha+')');
+    if (window.scrollY >= 90){
+      setHeaderBgColor(true);
+    }else {
+      setHeaderBgColor(false);
+    }
   }
 
   window.addEventListener('scroll', changeColor);
   return (
     <Navbar style={{backgroundColor: headerBgColor}} 
-    // className={headerBgColor ? 'header-bg-scrolling' :'header-bg'} 
+    className={headerBgColor ? 'header-bg-scrolling' :'header-bg'} 
     variant="dark" expand="lg" scrolling="dark" fixed="top">
       <Container >
         <Navbar.Brand href="#home">Uras Oran</Navbar.Brand>
