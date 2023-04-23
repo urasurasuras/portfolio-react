@@ -8,7 +8,7 @@ function Home() {
   return (
     <div id="page-top">
       {/* <!-- Masthead--> */}
-      <header className="masthead">
+      <header className="masthead" id="home">
         <div className="container h-100">
           <div className="row h-100 align-items-center  ">
             <div className="col-lg-10 align-self-end">

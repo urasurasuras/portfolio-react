@@ -8,7 +8,6 @@ function App() {
     <BrowserRouter>
       <NavbarComponent />
       <Routes>
-        {/* <Route path="/" element={<Layout />}> */}
         <Route index element={<Home />} />
         <Route path="/projects" element={<Projects />} />
       </Routes>

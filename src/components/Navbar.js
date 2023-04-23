@@ -25,7 +25,7 @@ function NavbarComponent() {
       // At home
       setAtHome(true);
       console.log("Location home", locationPathname);
-      setHeaderBgOpaque(false);
+      changeColor();
       window.addEventListener("scroll", changeColor);
     }
   }, [location]);
