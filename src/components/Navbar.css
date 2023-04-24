@@ -1,5 +1,5 @@
 :root{
-    --fade-duration: 0.5s;
+    --fade-duration: 0.3s;
     --solid-bg-color: black;
 }
 .header-bg-fadeToTransparent{
@@ -18,4 +18,5 @@
 }
 .header-bg-solidOpaque{
     background-color: var(--solid-bg-color);
+    position: initial;
 }
