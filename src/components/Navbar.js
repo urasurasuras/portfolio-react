@@ -10,7 +10,9 @@ import "./Navbar.css";
 function NavbarComponent() {
   const location = useLocation();
   const locationPathname = location.pathname;
-  const [headerBgOpaque, setHeaderBgOpaque] = useState(false);
+  const [headerBgOpacity, setHeaderBgOpacity] = useState(
+    "header-bg-fadeToTransparent"
+  );
   const [atHome, setAtHome] = useState();
 
   useEffect(() => {
@@ -19,7 +21,7 @@ function NavbarComponent() {
     if (locationPathname !== "/") {
       setAtHome(false);
       console.log("Location not home", locationPathname);
-      setHeaderBgOpaque(true);
+      setHeaderBgOpacity("header-bg-solidOpaque");
       window.removeEventListener("scroll", changeColor);
     } else {
       // At home
@@ -33,16 +35,16 @@ function NavbarComponent() {
   // Change navbar color while scrolling
   const changeColor = () => {
     if (window.scrollY >= 90) {
-      setHeaderBgOpaque(true);
+      setHeaderBgOpacity("header-bg-fadeToOpaque");
     } else {
-      setHeaderBgOpaque(false);
+      setHeaderBgOpacity("header-bg-fadeToTransparent");
     }
   };
 
   return (
     <Navbar
-      style={{ backgroundColor: headerBgOpaque }}
-      className={headerBgOpaque ? "header-bg-scrolling" : "header-bg"}
+      style={{ backgroundColor: headerBgOpacity }}
+      className={headerBgOpacity}
       variant="dark"
       expand="lg"
       scrolling="dark"

@@ -3,7 +3,7 @@ import "../styles.css";
 // import logo from "./logo.svg";
 // import "./App.css";
 import NavbarComponent from "../components/Navbar";
-import PortfolioItem from "./PortfolioItem";
+import PortfolioItem from "../components/PortfolioItem";
 
 function Home() {
   return (

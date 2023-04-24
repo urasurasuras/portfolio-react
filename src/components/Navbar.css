@@ -1,26 +1,21 @@
 :root{
     --fade-duration: 0.5s;
+    --solid-bg-color: black;
 }
-.header-bg{
+.header-bg-fadeToTransparent{
     background-color: rgba(255, 255, 255, 0);
     /* -webkit-transition: all var(--fade-duration) ease-in-out; */
     /* -moz-transition: all var(--fade-duration) ease-in-out; */
     /* -o-transition: all var(--fade-duration) ease-in-out; */
     transition: all var(--fade-duration) ease-in-out;
 }
-.header-bg-scrolling{
-    background-color: black;
+.header-bg-fadeToOpaque{
+    background-color: var(--solid-bg-color);
     /* -webkit-transition: all var(--fade-duration) ease-in-out; */
     /* -moz-transition: all var(--fade-duration) ease-in-out;
     -o-transition: all var(--fade-duration) ease-in-out; */
     transition: all var(--fade-duration) ease-in-out;
 }
-/* .header-bg {
-    /* background-color: rgb(137, 13, 13); */
-    /* color: purple;
-  }
-
-  .header-bg-scrolling {
-    padding: 1rem 1.5rem;
-    font-size: 1.5rem;
-  } */ 
+.header-bg-solidOpaque{
+    background-color: var(--solid-bg-color);
+}
