@@ -3,6 +3,7 @@ import "../styles.css";
 // import logo from "./logo.svg";
 // import "./App.css";
 import NavbarComponent from "../components/Navbar";
+import PortfolioItem from "./PortfolioItem";
 
 function Home() {
   return (
@@ -67,102 +68,42 @@ function Home() {
       <div id="portfolio">
         <div className="container-fluid p-0">
           <div className="row no-gutters">
-            <div className="col-lg-4 col-sm-6">
-              <a
-                className="portfolio-box"
-                href="https://github.com/urasurasuras/portfolio"
-              >
-                <img
-                  className="img-fluid"
-                  src="assets/img/portfolio/fullsize/github-logo.png"
-                  alt=""
-                />
-                <div className="portfolio-box-caption">
-                  <div className="project-category text-white-50">Web Page</div>
-                  <div className="project-name">Source to this web page</div>
-                </div>
-              </a>
-            </div>
-            <div className="col-lg-4 col-sm-6">
-              <a className="portfolio-box" href="https://hydrametry.com">
-                <img
-                  className="img-fluid"
-                  src="assets/img/portfolio/fullsize/HydraLogo.png"
-                  alt=""
-                />
-                <div className="portfolio-box-caption">
-                  <div className="project-category text-white-50">
-                    Game Development
-                  </div>
-                  <div className="project-name">Hydrametry Software</div>
-                </div>
-              </a>
-            </div>
-            <div className="col-lg-4 col-sm-6">
-              <a className="portfolio-box" href="lodge.html">
-                <img
-                  className="img-fluid"
-                  src="assets/img/portfolio/fullsize/lodge.png"
-                  alt=""
-                />
-                <div className="portfolio-box-caption">
-                  <div className="project-category text-white-50">
-                    Maya & Unreal Engine 4
-                  </div>
-                  <div className="project-name">Lodge</div>
-                </div>
-              </a>
-            </div>
-            <div className="col-lg-4 col-sm-6">
-              <a
-                className="portfolio-box"
-                href="https://github.com/urasurasuras/gf3d"
-              >
-                <img
-                  className="img-fluid"
-                  src="assets/img/portfolio/fullsize/gf3d.png"
-                  alt=""
-                />
-                <div className="portfolio-box-caption">
-                  <div className="project-category text-white-50">Vulkan</div>
-                  <div className="project-name">gf3d</div>
-                </div>
-              </a>
-            </div>
-            <div className="col-lg-4 col-sm-6">
-              <a
-                className="portfolio-box"
-                href="https://github.com/urasurasuras/it490"
-              >
-                <img
-                  className="img-fluid"
-                  src="assets/img/portfolio/fullsize/490.png"
-                  alt=""
-                />
-                <div className="portfolio-box-caption">
-                  <div className="project-category text-white-50">
-                    Web Application
-                  </div>
-                  <div className="project-name">System Integration</div>
-                </div>
-              </a>
-            </div>
-            <div className="col-lg-4 col-sm-6">
-              <a
-                className="portfolio-box"
-                href="https://github.com/urasurasuras/GrooveCrusaders_old"
-              >
-                <img
-                  className="img-fluid"
-                  src="assets/img/portfolio/thumbnails/6.jpg"
-                  alt=""
-                />
-                <div className="portfolio-box-caption p-3">
-                  <div className="project-category text-white-50">Unity</div>
-                  <div className="project-name">Groove Crusaders</div>
-                </div>
-              </a>
-            </div>
+            <PortfolioItem
+              link="https://github.com/urasurasuras/portfolio-react"
+              image="assets/img/portfolio/fullsize/github-logo.png"
+              category="Web Page"
+              name="Source to this web page"
+            />
+            <PortfolioItem
+              link="https://hydrametry.com"
+              image="assets/img/portfolio/fullsize/HydraLogo.png"
+              category="Game Development"
+              name="Hydrametry Software"
+            />
+            <PortfolioItem
+              link="/lodge"
+              image="assets/img/portfolio/fullsize/lodge.png"
+              category="Maya & Unreal Engine 4"
+              name="Lodge"
+            />
+            <PortfolioItem
+              link="https://github.com/urasurasuras/gf3d"
+              image="assets/img/portfolio/fullsize/gf3d.png"
+              category="Vulkan"
+              name="gf3d"
+            />
+            <PortfolioItem
+              link="https://github.com/urasurasuras/it490"
+              image="assets/img/portfolio/fullsize/490.png"
+              category="Web Application"
+              name="System Integration"
+            />
+            <PortfolioItem
+              link="https://github.com/urasurasuras/GrooveCrusaders_old"
+              image="assets/img/portfolio/thumbnails/6.jpg"
+              category="Unity"
+              name="Groove Crusaders"
+            />
           </div>
         </div>
       </div>
