@@ -1,0 +1,129 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
+  "basics": {
+    "name": "Uras Oran",
+    "label": "Programmer",
+    "image": "",
+    "email": "uras.oran.htc@gmail.com",
+    "phone": "(973) 910-9277",
+    "url": "https://hydrametry.com",
+    "summary": "Richard hails from Tulsa. He has earned degrees from the University of Oklahoma and Stanford. (Go Sooners and Cardinal!) Before starting Pied Piper, he worked for Hooli as a part time software developer. While his work focuses on applied information theory, mostly optimizing lossless compression schema of both the length-limited and adaptive variants, his non-work interests range widely, everything from quantum computing to chaos theory. He could tell you about it, but THAT would NOT be a “length-limited” conversation!",
+    "location": {
+      "address": "9 Country Club Drive",
+      "postalCode": "NJ 07067",
+      "city": "Colonia",
+      "countryCode": "US"
+        },
+    "profiles": [
+      {
+        "network": "LinkedIn",
+        "username": "Uras Oran",
+        "url": "https://www.linkedin.com/in/uras-oran-42321418b/"
+      }
+    ]
+  },
+  "work": [
+    {
+      "name": "Cognizant Technology Solutions",
+      "position": "Information Technology Associate",
+      "url": "https://www.cognizant.com/us/en",
+      "startDate": "2022-01-10",
+      "highlights": [
+        "Analyzed and debugged the integration codebase that uses Spring framework (Java) to identify and solve production-level issues",
+        "Experience in performing production level application support for insurance products for over 100000 customers and over 200000 policies.",
+        "Identified and troubleshooted production issues with peers using AWS Cloudwatch",
+        "Further analyzing discrepancies in an SQL database, creating and requesting approval for necessary change tickets and applying subsequent changes to the database via said SQL queries"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "New Jersey Institute of Technology",
+      "url": "https://www.njit.edu/",
+      "area": "B.S. in Information Technology",
+      "studyType": "Professor’s Assistant - Intermediate Java",
+      "startDate": "2017",
+      "endDate": "2021",
+      "score": "3.2"
+    }
+  ],
+  "skills": [
+    {
+      "name": "Programming Languages",
+      "keywords": [
+        "C#",
+        "C/C++,",
+        "Java"
+      ]
+    },
+    {
+      "name": "Scripting Languages",
+      "keywords": [
+        "Bash",
+        "PHP",
+        "Python","Javascript"
+      ]
+    },
+    {
+      "name": "Frameworks and Libraries",
+      "keywords": [        
+        "Unity",
+        ".NET",
+        "Unreal Engine 4",
+        "SDL 2",
+        "Vulkan API"
+      ]
+    },
+    {
+      "name": "Web Development",
+      "keywords": [ 
+        "ReactJS",
+        "HTML",
+        "Bootstrap",
+        "CSS",
+        "Apache"
+      ]
+    },
+    {
+      "name": "Other",
+      "keywords": [ 
+        "Git",
+        "Jira",
+        "SQL",
+        "RabbitMQ",
+        "Autodesk Maya",
+        "Google Suite",
+        "Microsoft Office",
+        "Adobe CC Suite",
+        "AWS"  
+      ]
+    }
+  ],
+  "languages": [
+    {
+      "language": "English",
+      "fluency": "Native speaker"
+    }
+    ,
+    {
+      "language": "Turkish",
+      "fluency": "Native speaker"
+    }
+  ],
+  "projects": [
+    {
+      "name": "Spatoo Jr.",
+      "description": "3D arcade-style space shooter game. In charge of engineering various gameplay elements including but not limited to an ability and powerup system, UI management, and a mission system. Project is done with a team of 8 total using the Unity game engine in C# and using GitHub for source control and FMOD for precise adaptive sound control. https://hydrametry.com/",
+      "keywords": [
+        "Unity"
+      ],
+      "startDate": "2020-07-21",
+      "type": "Unity"
+    }
+  ],
+  "meta": {
+    "canonical": "https://raw.githubusercontent.com/jsonresume/resume-schema/master/resume.json",
+    "version": "v1.0.0",
+    "lastModified": "2017-12-24T15:53:00"
+  }
+}
