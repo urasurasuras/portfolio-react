@@ -4,46 +4,71 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import { FaBars, FaTimes } from "react-icons/fa";
 import "./Navbar.css";
 import { Endpoints } from "../variables/Endpoints";
 
 function NavbarComponent() {
+  // Get location
   const location = useLocation();
   const locationPathname = location.pathname;
+
+  // Initialize navbar opacity
   const [headerBgOpacity, setHeaderBgOpacity] = useState(
     "header-bg-fadeToTransparent"
   );
+
   const [atHome, setAtHome] = useState();
 
+  // Execute on location change
   useEffect(() => {
-    // execute on location change
-    console.log("Location changed!", locationPathname);
-    if (locationPathname !== "/") {
-      setAtHome(false);
-      console.log("Location not home", locationPathname);
-      setHeaderBgOpacity("header-bg-solidOpaque");
-      window.removeEventListener("scroll", changeColor);
-    } else {
-      // At home
-      setAtHome(true);
-      console.log("Location home", locationPathname);
-      changeColor();
-      window.addEventListener("scroll", changeColor);
-    }
+    navbarStyleBehavior();
   }, [location]);
 
-  // Change navbar color while scrolling
-  const changeColor = () => {
-    if (window.scrollY >= 90) {
+  const toggleNavbarColor = (opaque) => {
+    if (opaque) {
       setHeaderBgOpacity("header-bg-fadeToOpaque");
     } else {
       setHeaderBgOpacity("header-bg-fadeToTransparent");
     }
   };
 
+  // Toggle navbar color while scrolling
+  const navbarScrollColorHandler = () => {
+    if (window.scrollY >= 90) {
+      toggleNavbarColor(true);
+    } else {
+      toggleNavbarColor(false);
+    }
+  };
+
+  // If mobile, then toggle bg color on collapse toggle
+  const [navbarMobileTogggle, setNavbarMobileTogggle] = useState(true);
+  const mobileNavbarToggleHandler = () => {
+    toggleNavbarColor(navbarMobileTogggle);
+    setNavbarMobileTogggle(!navbarMobileTogggle);
+  };
+
+  // Change navbar bg behavior based on location
+  function navbarStyleBehavior() {
+    if (locationPathname !== "/") {
+      // If I'm not at home, set the navbar to allways be solid
+      setAtHome(false);
+      console.log("Location not home", locationPathname);
+      setHeaderBgOpacity("header-bg-solidOpaque");
+      window.removeEventListener("scroll", navbarScrollColorHandler);
+    } else {
+      // At home
+      setAtHome(true);
+      console.log("Location home", locationPathname);
+      navbarScrollColorHandler();
+      window.addEventListener("scroll", navbarScrollColorHandler);
+    }
+  }
+
   return (
     <Navbar
+      // If at home toggle navbar color on collapse toggle
+      onToggle={atHome ? mobileNavbarToggleHandler : ""}
       style={{ backgroundColor: headerBgOpacity }}
       className={headerBgOpacity}
       variant="dark"
@@ -67,4 +92,5 @@ function NavbarComponent() {
     </Navbar>
   );
 }
+
 export default NavbarComponent;
