@@ -1,3 +1,5 @@
+import { Endpoints } from "../variables/Endpoints";
+
 function About() {
   return (
     <section className="page-section bg-primary" id="about">
@@ -12,12 +14,11 @@ function About() {
               I have been programming for various projects over the second half
               of my college education. These projects range from front end all
               the way to back end, game and game engine development! If you want
-              to look at all the projects I have worked on, here is a link to my
-              GitHub profile!
+              to look at all the projects I have worked on.
             </p>
             <a
               className="btn btn-light btn-xl js-scroll-trigger"
-              href="/projects"
+              href={Endpoints.Projects}
             >
               Projects
             </a>

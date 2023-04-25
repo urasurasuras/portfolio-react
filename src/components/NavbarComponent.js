@@ -24,29 +24,29 @@ function NavbarComponent() {
     navbarStyleBehavior();
   }, [location]);
 
-  const toggleNavbarColor = (opaque) => {
+  function toggleNavbarColor(opaque) {
     if (opaque) {
       setHeaderBgOpacity("header-bg-fadeToOpaque");
     } else {
       setHeaderBgOpacity("header-bg-fadeToTransparent");
     }
-  };
+  }
 
   // Toggle navbar color while scrolling
-  const navbarScrollColorHandler = () => {
+  function navbarScrollColorHandler() {
     if (window.scrollY >= 90) {
       toggleNavbarColor(true);
     } else {
       toggleNavbarColor(false);
     }
-  };
+  }
 
   // If mobile, then toggle bg color on collapse toggle
   const [navbarMobileTogggle, setNavbarMobileTogggle] = useState(true);
-  const mobileNavbarToggleHandler = () => {
+  function mobileNavbarToggleHandler() {
     toggleNavbarColor(navbarMobileTogggle);
     setNavbarMobileTogggle(!navbarMobileTogggle);
-  };
+  }
 
   // Change navbar bg behavior based on location
   function navbarStyleBehavior() {
