@@ -1,14 +1,15 @@
 import React, { Component } from "react";
+import Nav from "react-bootstrap/Nav";
+import { Button } from "react-bootstrap";
 
 class NavbarItem extends Component {
-  state = {};
   render() {
     return (
-      <li className="nav-item">
-        <a className="nav-link js-scroll-trigger" href={this.props.href}>
+      <Nav.Link href={this.props.href}>
+        <Button variant="text" color="secondary" size="sm">
           {this.props.title}
-        </a>
-      </li>
+        </Button>
+      </Nav.Link>
     );
   }
 }

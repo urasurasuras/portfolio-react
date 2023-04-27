@@ -4,8 +4,11 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
+
 import "./Navbar.css";
 import { Endpoints } from "../variables/Endpoints";
+import { Button } from "react-bootstrap";
+import NavbarItem from "./NavbarItem";
 
 function NavbarComponent() {
   // Get location
@@ -83,9 +86,14 @@ function NavbarComponent() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" align="end">
           <Nav className="ml-auto">
+            <NavbarItem href={Endpoints.Resume} title="Resume" />
+            <NavbarItem href={Endpoints.About} title="About" />
+            <NavbarItem href={Endpoints.Portfolio} title="Portfolio" />
+            <NavbarItem href={Endpoints.Contact} title="Contact" />
+            {/* 
             <Nav.Link href={Endpoints.About}>About</Nav.Link>
             <Nav.Link href={Endpoints.Portfolio}>Portfolio</Nav.Link>
-            <Nav.Link href={Endpoints.Contact}>Contact</Nav.Link>
+            <Nav.Link href={Endpoints.Contact}>Contact</Nav.Link> */}
           </Nav>
         </Navbar.Collapse>
       </Container>
