@@ -5,7 +5,7 @@ function Lodge() {
       <div className="sketchfab-embed-wrapper">
         <iframe
           title="Lodge_Sprint3"
-          frameborder="0"
+          frameBorder="0"
           allowfullscreen
           mozallowfullscreen="true"
           webkitallowfullscreen="true"

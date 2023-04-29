@@ -1,3 +1,5 @@
+import { Endpoints } from "../variables/Endpoints";
+
 function Resume() {
   return (
     <section className="page-section bg-dark text-white">
@@ -5,7 +7,7 @@ function Resume() {
         <h2 className="mb-4">Take a look at my resume!</h2>
         <a
           className="btn btn-light btn-xl"
-          href="assets/Uras Oran - Resume.pdf"
+          href={Endpoints.Resume}
           target="_blank"
         >
           View PDF

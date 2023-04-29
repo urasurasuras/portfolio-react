@@ -15,7 +15,7 @@ function Home() {
   return (
     <div id="page-top">
       <Masthead />
-      <About />
+      {/* <About /> */}
       <Portfolio />
       <Resume />
       <Contact />

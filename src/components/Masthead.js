@@ -11,11 +11,9 @@ function Masthead(props) {
           </div>
           <div className="col-lg-8 align-self-baseline">
             <p className="text-white-75 font-weight-normal mb-5">
-              Uras Oran
-              <br />
-              This portfolio page is for demonstration purposes <br />
-              Though it contains links to real projects, placeholder images may
-              be in use
+              Thanks for stopping by my portfolio page! <br/>
+              As an aspiring fullstack developer, I have experience with a wide range of technologies and frameworks.<br/>
+              Check out my work to see what I can create!
               <br />
             </p>
             <a

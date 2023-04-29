@@ -1,5 +1,5 @@
-import { Github, Linkedin } from "react-bootstrap-icons";
-import { Links } from "../variables/Endpoints";
+import { Github, Linkedin, EnvelopeAt, Phone } from "react-bootstrap-icons";
+import { Links,  ContactInfo } from "../variables/Endpoints";
 
 function Contact() {
   return (
@@ -12,20 +12,36 @@ function Contact() {
           </div>
         </div>
         <div className="row">
-          <div className="col-lg-4 ml-auto text-center mb-5 mb-lg-0">
-            <a className="d-block" href={Links.Source}>
+          <div className="col-lg-3 ml-auto text-center">
+            <a className="d-block" href={Links.Github}>
               <Github size={96} />
-            </a>
-            <a className="d-block" href={Links.Source}>
-              Source of this page
+              <br/>
+
+              GitHub
             </a>
           </div>
-          <div className="col-lg-4 mr-auto text-center">
+          <div className="col-lg-3 mr-auto text-center">
             <a className="d-block" href={Links.LinkedIn}>
               <Linkedin size={96} />
+              <br/>
+
+              LinkedIn
             </a>
-            <a className="d-block" href={Links.LinkedIn}>
-              Contact via LinkedIn
+          </div>
+          <div className="col-lg-3 mr-auto text-center">
+            <a className="d-block" href={"tel:"+ ContactInfo.Phone}>
+              <Phone size={96} />
+              <br/>
+
+              Phone
+            </a>
+          </div>
+          <div className="col-lg-3 mr-auto text-center">
+            <a className="d-block" href={"mailto:"+ ContactInfo.Email}>
+              <EnvelopeAt size={96} />
+              <br/>
+
+              Email
             </a>
           </div>
         </div>
