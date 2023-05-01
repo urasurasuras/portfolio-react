@@ -4,7 +4,8 @@ export const Endpoints = {
   Portfolio: "/#portfolio",
   Contact: "/#contact",
   Projects: "/projects",
-  Resume: "assets/Uras Oran - Resume.pdf",
+  ResumeSection: "/#resume",
+  ResumePDF: "assets/Uras Oran - Resume.pdf",
   Lodge: "/lodge",
   NotFound: "/404",
 };
@@ -13,13 +14,13 @@ export const Links = {
   GitHub: "https://github.com/urasurasuras/",
   Source: "https://github.com/urasurasuras/portfolio-react",
   LinkedIn: "https://www.linkedin.com/in/uras-oran-42321418b/",
-  Hydrametry:"https://hydrametry.com",
+  Hydrametry: "https://hydrametry.com",
   gf3d: "https://github.com/urasurasuras/gf3d",
   it490: "https://github.com/urasurasuras/it490",
-  GrooveCrusaders:"https://github.com/urasurasuras/GrooveCrusaders_old"
+  GrooveCrusaders: "https://github.com/urasurasuras/GrooveCrusaders_old",
 };
 
 export const ContactInfo = {
   Email: "uras.oran.htc@gmail.com",
-  Phone: "+19739109277"
-}
+  Phone: "+19739109277",
+};

@@ -7,7 +7,7 @@ function Resume() {
         <h2 className="mb-4">Take a look at my resume, and my projects!</h2>
         <a
           className="btn btn-light btn-xl mr-3"
-          href={Endpoints.Resume}
+          href={Endpoints.ResumePDF}
           target="_blank"
         >
           View PDF

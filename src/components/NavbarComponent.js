@@ -83,9 +83,9 @@ function NavbarComponent() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" align="end">
           <Nav className="ml-auto">
-            <Nav.Link href={Endpoints.Resume}>Resume</Nav.Link>
-            <Nav.Link href={Endpoints.About}>About</Nav.Link>
+            {/* <Nav.Link href={Endpoints.About}>About</Nav.Link> */}
             <Nav.Link href={Endpoints.Portfolio}>Portfolio</Nav.Link>
+            <Nav.Link href={Endpoints.ResumeSection}>Resume</Nav.Link>
             <Nav.Link href={Endpoints.Contact}>Contact</Nav.Link>
           </Nav>
         </Navbar.Collapse>
