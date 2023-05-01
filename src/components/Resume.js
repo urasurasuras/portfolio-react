@@ -2,7 +2,7 @@ import { Endpoints } from "../variables/Endpoints";
 
 function Resume() {
   return (
-    <section className="page-section bg-dark text-white">
+    <section className="page-section bg-dark text-white" id="resume">
       <div className="container text-center">
         <h2 className="mb-4">Take a look at my resume, and my projects!</h2>
         <a
