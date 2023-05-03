@@ -4,6 +4,7 @@ export const Endpoints = {
   Portfolio: "/#portfolio",
   Contact: "/#contact",
   Projects: "/projects",
+  Demo: "/demo",
   ResumeSection: "/#resume",
   ResumePDF: "assets/Uras Oran - Resume.pdf",
   Lodge: "/lodge",

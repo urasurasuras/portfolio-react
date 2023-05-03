@@ -6,6 +6,7 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import "./Navbar.css";
 import { Endpoints } from "../variables/Endpoints";
+import Badge from "react-bootstrap/Badge";
 
 function NavbarComponent() {
   // Get location
@@ -84,6 +85,12 @@ function NavbarComponent() {
         <Navbar.Collapse id="basic-navbar-nav" align="end">
           <Nav className="ml-auto">
             {/* <Nav.Link href={Endpoints.About}>About</Nav.Link> */}
+            <Nav.Link href={Endpoints.Demo}>
+              Demo{" "}
+              <Badge pill bg="danger">
+                NEW!
+              </Badge>
+            </Nav.Link>
             <Nav.Link href={Endpoints.Portfolio}>Portfolio</Nav.Link>
             <Nav.Link href={Endpoints.ResumeSection}>Resume</Nav.Link>
             <Nav.Link href={Endpoints.Contact}>Contact</Nav.Link>
