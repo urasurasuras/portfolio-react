@@ -66,10 +66,7 @@ function NavbarComponent(props) {
     }
   }
 
-  const dispatch = useDispatch();
   const newBadgeInd = useSelector((state) => state.newBadge.badge);
-
-  // const [newBadgeContent, setNewBadgeContent] = useState();
 
   let newBadgeContent = (
     <Badge pill bg="danger">
@@ -79,16 +76,8 @@ function NavbarComponent(props) {
   if (!newBadgeInd) {
     newBadgeContent = "";
   }
+
   console.log(newBadgeContent);
-
-  const handleNewBadgeClear = () => {
-    dispatch({ type: "clearNewBadge" });
-  };
-  const handleNewBadgeMake = () => {
-    dispatch({ type: "makeNewBadge" });
-  };
-
-  // console.log(newBadge.newBadge);
   // console.log(newBadge.newBadge.newBadge.newBadge);
   return (
     <Navbar
@@ -109,8 +98,8 @@ function NavbarComponent(props) {
         <Navbar.Collapse id="basic-navbar-nav" align="end">
           <Nav className="ml-auto">
             {/* <Nav.Link href={Endpoints.About}>About</Nav.Link> */}
-            <Button onClick={handleNewBadgeClear}>Clear</Button>
-            <Button onClick={handleNewBadgeMake}>Put</Button>
+            {/* <Button onClick={handleNewBadgeClear}>Clear</Button>
+            <Button onClick={handleNewBadgeMake}>Put</Button> */}
 
             <Nav.Link href={Endpoints.Demo}>Demo {newBadgeContent}</Nav.Link>
             <Nav.Link href={Endpoints.Portfolio}>Portfolio</Nav.Link>

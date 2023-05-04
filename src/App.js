@@ -15,9 +15,9 @@ import { Endpoints } from "./variables/Endpoints";
 
 function App(props) {
   return (
-    <BrowserRouter forceRefresh={true}>
+    <BrowserRouter>
       <Routes>
-        <Route path={Endpoints.Home} element={<Layout newBadge={"newBadge"} />}>
+        <Route path={Endpoints.Home} element={<Layout />}>
           <Route index element={<Home />} />
           <Route path={Endpoints.Projects} element={<Projects />} />
           <Route path={Endpoints.Lodge} element={<Lodge />} />

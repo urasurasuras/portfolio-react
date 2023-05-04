@@ -6,9 +6,6 @@ import { createStore, combineReducers } from "redux";
 import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
-import Badge from "react-bootstrap/Badge";
-import { Button } from "react-bootstrap";
-
 function handleCounterLogic(state, action) {}
 
 const persistentCounterReducer = (state = { persistentCount: 0 }, action) => {

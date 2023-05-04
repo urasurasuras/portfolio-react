@@ -1,6 +1,10 @@
 import { Endpoints } from "../variables/Endpoints";
+import { useDispatch } from "react-redux";
 
 function Masthead(props) {
+  // const dispatch = useDispatch();
+
+  // dispatch({ type: "makeNewBadge" });
   return (
     <header className="masthead" id="home">
       <div className="container h-100">
