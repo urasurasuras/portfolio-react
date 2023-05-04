@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import ExpenseItemContainer from "../components/demo/Expenses/ExpenseItemContainer";
 import NewExpenseDialogue from "../components/demo/NewExpense/NewExpense";
 
 import "../styles.css";
+import { Button } from "react-bootstrap";
+import { propTypes } from "react-bootstrap/esm/Image";
 
 // Dummy data
 const yummyExpenses = [
@@ -19,6 +21,11 @@ const yummyExpenses = [
 ];
 
 function Demo() {
+  // useEffect(() => {
+  //   // call api or anything
+  //   demoClickHandler();
+  // });
+
   const [expenses, setExpenses] = useState(yummyExpenses);
 
   const addExpenseHandler = (newExpense) => {

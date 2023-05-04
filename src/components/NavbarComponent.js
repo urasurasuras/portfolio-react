@@ -1,14 +1,14 @@
 import React, { useRef, useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+
 import { useLocation } from "react-router-dom";
-import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
+import { Container, Nav, Navbar, NavDropdown, Button } from "react-bootstrap";
+
 import "./Navbar.css";
 import { Endpoints } from "../variables/Endpoints";
 import Badge from "react-bootstrap/Badge";
 
-function NavbarComponent() {
+function NavbarComponent(props) {
   // Get location
   const location = useLocation();
   const locationPathname = location.pathname;
@@ -54,18 +54,42 @@ function NavbarComponent() {
     if (locationPathname !== "/") {
       // If I'm not at home, set the navbar to allways be solid
       setAtHome(false);
-      console.log("Location not home", locationPathname);
+      // console.log("Location not home", locationPathname);
       setHeaderBgOpacity("header-bg-solidOpaque");
       window.removeEventListener("scroll", navbarScrollColorHandler);
     } else {
       // At home
       setAtHome(true);
-      console.log("Location home", locationPathname);
+      // console.log("Location home", locationPathname);
       navbarScrollColorHandler();
       window.addEventListener("scroll", navbarScrollColorHandler);
     }
   }
 
+  const dispatch = useDispatch();
+  const newBadgeInd = useSelector((state) => state.newBadge.badge);
+
+  // const [newBadgeContent, setNewBadgeContent] = useState();
+
+  let newBadgeContent = (
+    <Badge pill bg="danger">
+      NEW!
+    </Badge>
+  );
+  if (!newBadgeInd) {
+    newBadgeContent = "";
+  }
+  console.log(newBadgeContent);
+
+  const handleNewBadgeClear = () => {
+    dispatch({ type: "clearNewBadge" });
+  };
+  const handleNewBadgeMake = () => {
+    dispatch({ type: "makeNewBadge" });
+  };
+
+  // console.log(newBadge.newBadge);
+  // console.log(newBadge.newBadge.newBadge.newBadge);
   return (
     <Navbar
       // If at home toggle navbar color on collapse toggle
@@ -85,12 +109,10 @@ function NavbarComponent() {
         <Navbar.Collapse id="basic-navbar-nav" align="end">
           <Nav className="ml-auto">
             {/* <Nav.Link href={Endpoints.About}>About</Nav.Link> */}
-            <Nav.Link href={Endpoints.Demo}>
-              Demo{" "}
-              <Badge pill bg="danger">
-                NEW!
-              </Badge>
-            </Nav.Link>
+            <Button onClick={handleNewBadgeClear}>Clear</Button>
+            <Button onClick={handleNewBadgeMake}>Put</Button>
+
+            <Nav.Link href={Endpoints.Demo}>Demo {newBadgeContent}</Nav.Link>
             <Nav.Link href={Endpoints.Portfolio}>Portfolio</Nav.Link>
             <Nav.Link href={Endpoints.ResumeSection}>Resume</Nav.Link>
             <Nav.Link href={Endpoints.Contact}>Contact</Nav.Link>
