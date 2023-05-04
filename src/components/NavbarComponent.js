@@ -1,5 +1,5 @@
-import React, { useRef, useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 
 import { useLocation } from "react-router-dom";
 import { Container, Nav, Navbar, NavDropdown, Button } from "react-bootstrap";
