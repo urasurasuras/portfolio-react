@@ -6,6 +6,7 @@ export const Endpoints = {
   Projects: "/projects",
   ResumeSection: "/#resume",
   ResumePDF: "assets/Uras Oran - Resume.pdf",
+  GameDevResumePDF: "assets/Uras Oran - Game Dev Resume.pdf",
   Lodge: "/lodge",
   NotFound: "/404",
 };

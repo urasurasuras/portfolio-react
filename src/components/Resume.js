@@ -10,7 +10,14 @@ function Resume() {
           href={Endpoints.ResumePDF}
           target="_blank"
         >
-          View PDF
+          Fullstack Developer Resume
+        </a>
+        <a
+          className="btn btn-light btn-xl mr-3"
+          href={Endpoints.GameDevResumePDF}
+          target="_blank"
+        >
+          Game Developer Resume
         </a>
         <a className="btn btn-light btn-xl mr-3" href={Endpoints.Projects}>
           Projects
