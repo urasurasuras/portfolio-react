@@ -100,8 +100,14 @@ function NavbarComponent(props) {
             {/* <Nav.Link href={Endpoints.About}>About</Nav.Link> */}
             {/* <Button onClick={handleNewBadgeClear}>Clear</Button>
             <Button onClick={handleNewBadgeMake}>Put</Button> */}
-
-            <Nav.Link href={Endpoints.Demo}>Demo {newBadgeContent}</Nav.Link>
+            <NavDropdown title="Demos" id="basic-nav-dropdown">
+              <Nav.Link href={Endpoints.Demo}>
+                Expenses App {newBadgeContent}
+              </Nav.Link>
+              <Nav.Link href={Endpoints.PersistentCounter}>
+                Persistent Counter {newBadgeContent}
+              </Nav.Link>
+            </NavDropdown>
             <Nav.Link href={Endpoints.Portfolio}>Portfolio</Nav.Link>
             <Nav.Link href={Endpoints.ResumeSection}>Resume</Nav.Link>
             <Nav.Link href={Endpoints.Contact}>Contact</Nav.Link>

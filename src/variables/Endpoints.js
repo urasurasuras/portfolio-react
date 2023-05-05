@@ -5,6 +5,7 @@ export const Endpoints = {
   Contact: "/#contact",
   Projects: "/projects",
   Demo: "/demo",
+  PersistentCounter: "/counter",
   ResumeSection: "/#resume",
   ResumePDF: "assets/Uras Oran - Resume.pdf",
   Lodge: "/lodge",
