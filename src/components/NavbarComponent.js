@@ -77,7 +77,7 @@ function NavbarComponent(props) {
     newBadgeContent = "";
   }
 
-  console.log(newBadgeContent);
+  // console.log(newBadgeContent);
   // console.log(newBadge.newBadge.newBadge.newBadge);
   return (
     <Navbar
