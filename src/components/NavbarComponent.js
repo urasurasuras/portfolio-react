@@ -1,5 +1,4 @@
 import React, { useRef, useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
 
 import { useLocation } from "react-router-dom";
 import { Container, Nav, Navbar, NavDropdown, Button } from "react-bootstrap";
@@ -8,7 +7,11 @@ import "./Navbar.css";
 import { Endpoints } from "../variables/Endpoints";
 import Badge from "react-bootstrap/Badge";
 
+import { CookiesProvider, useCookies } from "react-cookie";
+
 function NavbarComponent(props) {
+  const [cookies, setCookie] = useCookies(["user"]);
+
   // Get location
   const location = useLocation();
   const locationPathname = location.pathname;
@@ -66,17 +69,22 @@ function NavbarComponent(props) {
     }
   }
 
-  const newBadgeInd = useSelector((state) => state.newBadge.badge);
-
   let newBadgeContent = (
     <Badge pill bg="danger">
       NEW!
     </Badge>
   );
-  if (!newBadgeInd) {
+  console.log(cookies.NewBadgeInd);
+  if (cookies.NewBadgeInd === "false") {
     newBadgeContent = "";
   }
 
+  const handleNewBadgeClear = () => {
+    setCookie("NewBadgeInd", true);
+  };
+  const handleNewBadgeMake = () => {
+    setCookie("NewBadgeInd", false);
+  };
   // console.log(newBadgeContent);
   // console.log(newBadge.newBadge.newBadge.newBadge);
   return (
@@ -98,8 +106,8 @@ function NavbarComponent(props) {
         <Navbar.Collapse id="basic-navbar-nav" align="end">
           <Nav className="ml-auto">
             {/* <Nav.Link href={Endpoints.About}>About</Nav.Link> */}
-            {/* <Button onClick={handleNewBadgeClear}>Clear</Button>
-            <Button onClick={handleNewBadgeMake}>Put</Button> */}
+            <Button onClick={handleNewBadgeClear}>Clear</Button>
+            <Button onClick={handleNewBadgeMake}>Put</Button>
 
             <Nav.Link href={Endpoints.Demo}>Demo {newBadgeContent}</Nav.Link>
             <Nav.Link href={Endpoints.Portfolio}>Portfolio</Nav.Link>
