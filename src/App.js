@@ -12,8 +12,9 @@ import Lodge from "./modules/Lodge";
 import Demo from "./modules/Demo";
 import Counter from "./components/Counter";
 import { Endpoints } from "./variables/Endpoints";
+import { useCookies } from "react-cookie";
 
-function App(props) {
+function App() {
   return (
     <BrowserRouter>
       <Routes>
