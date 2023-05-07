@@ -1,9 +1,10 @@
 :root{
     --fade-duration: 0.3s;
     --solid-bg-color: black;
+    --transparent-bg-color: rgba(255, 255, 255, 0);
 }
 .header-bg-fadeToTransparent{
-    background-color: rgba(255, 255, 255, 0);
+    background-color: var(--transparent-bg-color);
     /* -webkit-transition: all var(--fade-duration) ease-in-out; */
     /* -moz-transition: all var(--fade-duration) ease-in-out; */
     /* -o-transition: all var(--fade-duration) ease-in-out; */
@@ -19,4 +20,13 @@
 .header-bg-solidOpaque{
     background-color: var(--solid-bg-color);
     position: initial;
+}
+/* .header-bg-solidOpaque-fixed{
+    background-color: var(--solid-bg-color);
+} */
+.dropdown-menu.show{
+    background-color: var(--solid-bg-color);
+}
+.dropdown-menu{
+    background-color: var(--solid-bg-color);
 }

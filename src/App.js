@@ -23,7 +23,7 @@ function App() {
             path={Endpoints.Demo}
             element={<Demo />}
           />
-          <Route path="/counter" element={<Counter />} />
+          <Route path={Endpoints.PersistentCounter} element={<Counter />} />
         </Route>
       </Routes>
     </BrowserRouter>

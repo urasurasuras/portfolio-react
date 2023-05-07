@@ -52,19 +52,37 @@ function NavbarComponent(props) {
     setNavbarMobileTogggle(!navbarMobileTogggle);
   }
 
+  function setBgSolid() {
+    setHeaderBgOpacity("header-bg-solidOpaque");
+    window.removeEventListener("scroll", navbarScrollColorHandler);
+  }
+  function setBgVariable() {
+    navbarScrollColorHandler();
+    window.addEventListener("scroll", navbarScrollColorHandler);
+  }
   // Change navbar bg behavior based on location
   function navbarStyleBehavior() {
     if (locationPathname !== "/") {
       // If I'm not at home, set the navbar to allways be solid
       setAtHome(false);
       // console.log("Location not home", locationPathname);
-      setHeaderBgOpacity("header-bg-solidOpaque");
-      window.removeEventListener("scroll", navbarScrollColorHandler);
+      setBgSolid();
     } else {
       // At home
       setAtHome(true);
       // console.log("Location home", locationPathname);
-      navbarScrollColorHandler();
+      setBgVariable();
+    }
+  }
+
+  function handleNavDropdownToggle(isExpanded) {
+    // TODO: disable scroll when dropdown is expanded
+    if (!atHome) return;
+    if (isExpanded) {
+      setHeaderBgOpacity("header-bg-fadeToOpaque");
+      window.removeEventListener("scroll", navbarScrollColorHandler);
+    } else {
+      setHeaderBgOpacity("header-bg-fadeToTransparent");
       window.addEventListener("scroll", navbarScrollColorHandler);
     }
   }
@@ -74,7 +92,7 @@ function NavbarComponent(props) {
       NEW!
     </Badge>
   );
-  console.log(cookies.NewBadgeInd);
+  console.log(cookies.NewBadgeInd); // TODO: on page reload instead
   if (cookies.NewBadgeInd === "false") {
     newBadgeContent = "";
   }
@@ -106,10 +124,22 @@ function NavbarComponent(props) {
         <Navbar.Collapse id="basic-navbar-nav" align="end">
           <Nav className="ml-auto">
             {/* <Nav.Link href={Endpoints.About}>About</Nav.Link> */}
-            <Button onClick={handleNewBadgeClear}>Clear</Button>
-            <Button onClick={handleNewBadgeMake}>Put</Button>
+            {/* <Button onClick={handleNewBadgeClear}>Clear</Button>
+            <Button onClick={handleNewBadgeMake}>Put</Button> */}
 
-            <Nav.Link href={Endpoints.Demo}>Demo {newBadgeContent}</Nav.Link>
+            <NavDropdown
+              title="Demos"
+              id="basic-nav-dropdown"
+              className="basic-nav-dropdown"
+              onToggle={handleNavDropdownToggle}
+            >
+              <Nav.Link href={Endpoints.Demo}>
+                Expenses App {newBadgeContent}
+              </Nav.Link>
+              <Nav.Link href={Endpoints.PersistentCounter}>
+                Persistent Counter {newBadgeContent}
+              </Nav.Link>
+            </NavDropdown>
             <Nav.Link href={Endpoints.Portfolio}>Portfolio</Nav.Link>
             <Nav.Link href={Endpoints.ResumeSection}>Resume</Nav.Link>
             <Nav.Link href={Endpoints.Contact}>Contact</Nav.Link>

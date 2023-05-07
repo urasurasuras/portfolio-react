@@ -13,13 +13,13 @@ const persistentCounterReducer = (state = { persistentCount: 0 }, action) => {
     return {
       persistentCount: state.persistentCount + 1,
     };
-  } else if (action.type === "decrement") {
+  }
+  if (action.type === "decrement") {
     return {
       persistentCount: state.persistentCount - 1,
     };
-  } else {
-    return state;
   }
+  return state;
 };
 
 const newBadgeReducer = (
@@ -32,7 +32,8 @@ const newBadgeReducer = (
     return {
       badge: false,
     };
-  } else if (action.type === "makeNewBadge") {
+  }
+  if (action.type === "makeNewBadge") {
     return {
       badge: true,
     };
