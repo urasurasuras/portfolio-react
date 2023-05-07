@@ -38,10 +38,14 @@ function NavbarComponent(props) {
 
   // Toggle navbar color while scrolling
   function navbarScrollColorHandler() {
+    console.log(isADropDownExpanded);
+
     if (window.scrollY >= 90) {
       toggleNavbarColor(true);
     } else {
-      toggleNavbarColor(false);
+      if (!isADropDownExpanded) {
+        toggleNavbarColor(false);
+      }
     }
   }
 
@@ -75,8 +79,12 @@ function NavbarComponent(props) {
     }
   }
 
+  const [isADropDownExpanded, setIsADropDownExpanded] = useState(false);
   function handleNavDropdownToggle(isExpanded) {
     // TODO: disable scroll when dropdown is expanded
+    // console.log(isExpanded);
+
+    setIsADropDownExpanded(isExpanded);
     if (!atHome) return;
     if (isExpanded) {
       setHeaderBgOpacity("header-bg-fadeToOpaque");
@@ -92,7 +100,7 @@ function NavbarComponent(props) {
       NEW!
     </Badge>
   );
-  console.log(cookies.NewBadgeInd); // TODO: on page reload instead
+  // console.log(cookies.NewBadgeInd); // TODO: on page reload instead
   if (cookies.NewBadgeInd === "false") {
     newBadgeContent = "";
   }
