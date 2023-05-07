@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Card from "../UI/Card";
 
 import "./ExpenseForm.css";
+import { Button } from "react-bootstrap";
 
 const ExpenseForm = (props) => {
   // useState data
@@ -76,10 +77,10 @@ const ExpenseForm = (props) => {
         </div>
       </div>
       <div className="new-expense__actions">
-        <button type="submit">Add Expense</button>
-        <button type="cancel" onClick={cancelHandler}>
+        <Button type="submit">Add Expense</Button>
+        <Button type="cancel" onClick={cancelHandler}>
           Cancel
-        </button>
+        </Button>
       </div>
     </form>
   );

@@ -3,6 +3,7 @@ import ExpenseForm from "./ExpenseForm";
 import Card from "../UI/Card";
 
 import "./NewExpense.css";
+import { Button } from "bootstrap";
 
 const NewExpenseDialogue = (props) => {
   function saveExpenseDataHandler(enteredExpenseData) {

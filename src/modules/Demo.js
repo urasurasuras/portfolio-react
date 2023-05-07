@@ -7,14 +7,14 @@ import "../styles.css";
 
 // Dummy data
 const yummyExpenses = [
-  { key: "e1", title: "Joe", date: new Date(), amount: "5.56" },
-  { key: "e4", title: "mama", date: new Date(), amount: "7.56" },
-  { key: "e2", title: "hehe", date: new Date(), amount: "468253" },
+  { key: "e1", title: "Bread", date: new Date(), amount: "5.56" },
+  { key: "e4", title: "Milk", date: new Date(), amount: "7.56" },
+  { key: "e2", title: "Car", date: new Date(), amount: "6500" },
   {
     key: "e3",
-    title: "Baska bisey",
+    title: "House",
     date: new Date(),
-    amount: "124231546",
+    amount: "500000",
   },
 ];
 
@@ -29,8 +29,8 @@ function Demo(props) {
   };
 
   return (
-    <div className="App">
-      <h1 className="text-center">Migros sanal market</h1>
+    <div >
+      <h1 className="text-center">Keep track of your expsenses</h1>
       <NewExpenseDialogue onAddExpense={addExpenseHandler} />
       <ExpenseItemContainer expenses={expenses} />
     </div>
