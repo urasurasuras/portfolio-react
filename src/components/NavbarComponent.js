@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import React, { useRef, useState, useEffect } from "react";
 
 import { useLocation } from "react-router-dom";
 import { Container, Nav, Navbar, NavDropdown, Button } from "react-bootstrap";
@@ -8,7 +7,11 @@ import "./Navbar.css";
 import { Endpoints } from "../variables/Endpoints";
 import Badge from "react-bootstrap/Badge";
 
+import { CookiesProvider, useCookies } from "react-cookie";
+
 function NavbarComponent(props) {
+  const [cookies, setCookie] = useCookies(["user"]);
+
   // Get location
   const location = useLocation();
   const locationPathname = location.pathname;
@@ -35,10 +38,14 @@ function NavbarComponent(props) {
 
   // Toggle navbar color while scrolling
   function navbarScrollColorHandler() {
+    console.log(isADropDownExpanded);
+
     if (window.scrollY >= 90) {
       toggleNavbarColor(true);
     } else {
-      toggleNavbarColor(false);
+      if (!isADropDownExpanded) {
+        toggleNavbarColor(false);
+      }
     }
   }
 
@@ -49,35 +56,62 @@ function NavbarComponent(props) {
     setNavbarMobileTogggle(!navbarMobileTogggle);
   }
 
+  function setBgSolid() {
+    setHeaderBgOpacity("header-bg-solidOpaque");
+    window.removeEventListener("scroll", navbarScrollColorHandler);
+  }
+  function setBgVariable() {
+    navbarScrollColorHandler();
+    window.addEventListener("scroll", navbarScrollColorHandler);
+  }
   // Change navbar bg behavior based on location
   function navbarStyleBehavior() {
     if (locationPathname !== "/") {
       // If I'm not at home, set the navbar to allways be solid
       setAtHome(false);
       // console.log("Location not home", locationPathname);
-      setHeaderBgOpacity("header-bg-solidOpaque");
-      window.removeEventListener("scroll", navbarScrollColorHandler);
+      setBgSolid();
     } else {
       // At home
       setAtHome(true);
       // console.log("Location home", locationPathname);
-      navbarScrollColorHandler();
-      window.addEventListener("scroll", navbarScrollColorHandler);
+      setBgVariable();
     }
   }
 
-  const newBadgeInd = useSelector((state) => state.newBadge.badge);
+  const [isADropDownExpanded, setIsADropDownExpanded] = useState(false);
+  function handleNavDropdownToggle(isExpanded) {
+    // TODO: disable scroll when dropdown is expanded
+    // console.log(isExpanded);
+
+    setIsADropDownExpanded(isExpanded);
+    if (!atHome) return;
+    if (isExpanded) {
+      setHeaderBgOpacity("header-bg-fadeToOpaque");
+      window.removeEventListener("scroll", navbarScrollColorHandler);
+    } else {
+      setHeaderBgOpacity("header-bg-fadeToTransparent");
+      window.addEventListener("scroll", navbarScrollColorHandler);
+    }
+  }
 
   let newBadgeContent = (
     <Badge pill bg="danger">
       NEW!
     </Badge>
   );
-  if (!newBadgeInd) {
+  // console.log(cookies.NewBadgeInd); // TODO: on page reload instead
+  if (cookies.NewBadgeInd === "false") {
     newBadgeContent = "";
   }
 
-  console.log(newBadgeContent);
+  const handleNewBadgeClear = () => {
+    setCookie("NewBadgeInd", true);
+  };
+  const handleNewBadgeMake = () => {
+    setCookie("NewBadgeInd", false);
+  };
+  // console.log(newBadgeContent);
   // console.log(newBadge.newBadge.newBadge.newBadge);
   return (
     <Navbar
@@ -100,7 +134,13 @@ function NavbarComponent(props) {
             {/* <Nav.Link href={Endpoints.About}>About</Nav.Link> */}
             {/* <Button onClick={handleNewBadgeClear}>Clear</Button>
             <Button onClick={handleNewBadgeMake}>Put</Button> */}
-            <NavDropdown title="Demos" id="basic-nav-dropdown">
+
+            <NavDropdown
+              title="Demos"
+              id="basic-nav-dropdown"
+              className="basic-nav-dropdown"
+              onToggle={handleNavDropdownToggle}
+            >
               <Nav.Link href={Endpoints.Demo}>
                 Expenses App {newBadgeContent}
               </Nav.Link>

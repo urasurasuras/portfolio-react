@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from "react";
 
-// Import the necessary methods for saving and loading
-import { save, load } from "redux-sessionstorage-simple";
-
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./modules/Home";
 import { Layout } from "./components/Layout";
@@ -13,7 +10,7 @@ import Demo from "./modules/Demo";
 import Counter from "./components/Counter";
 import { Endpoints } from "./variables/Endpoints";
 
-function App(props) {
+function App() {
   return (
     <BrowserRouter>
       <Routes>
