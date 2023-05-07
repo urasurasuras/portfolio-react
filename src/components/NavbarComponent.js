@@ -38,7 +38,7 @@ function NavbarComponent(props) {
 
   // Toggle navbar color while scrolling
   function navbarScrollColorHandler() {
-    console.log(isADropDownExpanded);
+    // console.log(isADropDownExpanded);
 
     if (window.scrollY >= 90) {
       toggleNavbarColor(true);
@@ -95,22 +95,12 @@ function NavbarComponent(props) {
     }
   }
 
-  let newBadgeContent = (
+  const newBadgeContent = (
     <Badge pill bg="danger">
       NEW!
-    </Badge>
-  );
-  // console.log(cookies.NewBadgeInd); // TODO: on page reload instead
-  if (cookies.NewBadgeInd === "false") {
-    newBadgeContent = "";
-  }
+    </Badge>);
 
-  const handleNewBadgeClear = () => {
-    setCookie("NewBadgeInd", true);
-  };
-  const handleNewBadgeMake = () => {
-    setCookie("NewBadgeInd", false);
-  };
+
   // console.log(newBadgeContent);
   // console.log(newBadge.newBadge.newBadge.newBadge);
   return (
@@ -141,11 +131,11 @@ function NavbarComponent(props) {
               className="basic-nav-dropdown"
               onToggle={handleNavDropdownToggle}
             >
-              <Nav.Link href={Endpoints.Demo}>
-                Expenses App {newBadgeContent}
+              <Nav.Link href={Endpoints.Demo} onClick={()=>{setCookie("visitedExpensesApp", true);}}>
+                Expenses App {cookies.visitedExpensesApp ? "" : newBadgeContent}
               </Nav.Link>
-              <Nav.Link href={Endpoints.PersistentCounter}>
-                Persistent Counter {newBadgeContent}
+              <Nav.Link href={Endpoints.PersistentCounter} onClick={()=>{setCookie("visitedCounterApp", true);}}>
+                Persistent Counter {cookies.visitedCounterApp ? "" : newBadgeContent}
               </Nav.Link>
             </NavDropdown>
             <Nav.Link href={Endpoints.Portfolio}>Portfolio</Nav.Link>

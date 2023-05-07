@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
 
 import ExpenseItemContainer from "../components/demo/Expenses/ExpenseItemContainer";
 import NewExpenseDialogue from "../components/demo/NewExpense/NewExpense";
 
 import "../styles.css";
-import { Button } from "react-bootstrap";
-import { propTypes } from "react-bootstrap/esm/Image";
 
 // Dummy data
 const yummyExpenses = [
@@ -22,15 +19,7 @@ const yummyExpenses = [
 ];
 
 function Demo(props) {
-  const dispatch = useDispatch();
 
-  dispatch({ type: "clearNewBadge" });
-  // const handleNewBadgeClear = () => {
-  //   dispatch({ type: "clearNewBadge" });
-  // };
-  // const handleNewBadgeMake = () => {
-  //   dispatch({ type: "makeNewBadge" });
-  // };
   const [expenses, setExpenses] = useState(yummyExpenses);
 
   const addExpenseHandler = (newExpense) => {
