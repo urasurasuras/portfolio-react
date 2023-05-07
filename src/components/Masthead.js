@@ -1,5 +1,4 @@
 import { Endpoints } from "../variables/Endpoints";
-import { useDispatch } from "react-redux";
 
 function Masthead(props) {
   // const dispatch = useDispatch();
