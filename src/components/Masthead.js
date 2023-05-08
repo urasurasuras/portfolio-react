@@ -1,12 +1,11 @@
 import "./Masthead.css";
 import { Endpoints } from "../variables/Endpoints";
 
-
 function Masthead(props) {
   return (
     <header className="masthead" id="home">
       <div className="container h-100">
-        <div className="row h-100 align-items-center  ">
+        <div className="container row h-100 align-items-center  ">
           <div className="col-lg-10 align-self-end">
             <h1 className="text-uppercase text-white font-weight-bold">
               Portfolio
