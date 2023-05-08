@@ -1,9 +1,8 @@
+import "./Masthead.css";
 import { Endpoints } from "../variables/Endpoints";
 
-function Masthead(props) {
-  // const dispatch = useDispatch();
 
-  // dispatch({ type: "makeNewBadge" });
+function Masthead(props) {
   return (
     <header className="masthead" id="home">
       <div className="container h-100">

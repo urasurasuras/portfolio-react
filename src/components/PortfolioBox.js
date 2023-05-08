@@ -1,6 +1,7 @@
 import { useLocation } from "react-router-dom";
+import "./PortfolioBox.css"
 
-function PortfolioItem(props) {
+function PortfolioBox(props) {
   let target = "";
   if (props.newTab) {
     target = "_blank";
@@ -21,4 +22,4 @@ function PortfolioItem(props) {
   );
 }
 
-export default PortfolioItem;
+export default PortfolioBox;
