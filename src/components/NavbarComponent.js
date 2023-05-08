@@ -120,7 +120,7 @@ function NavbarComponent(props) {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" align="end">
-          <Nav className="ml-auto">
+          <Nav className="ms-auto">
             {/* <Nav.Link href={Endpoints.About}>About</Nav.Link> */}
             {/* <Button onClick={handleNewBadgeClear}>Clear</Button>
             <Button onClick={handleNewBadgeMake}>Put</Button> */}
