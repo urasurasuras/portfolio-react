@@ -4,6 +4,8 @@ export const Endpoints = {
   Portfolio: "/#portfolio",
   Contact: "/#contact",
   Projects: "/projects",
+  Demo: "/demo",
+  PersistentCounter: "/counter",
   ResumeSection: "/#resume",
   ResumePDF: "assets/Uras Oran - Resume.pdf",
   GameDevResumePDF: "assets/Uras Oran - Game Dev Resume.pdf",

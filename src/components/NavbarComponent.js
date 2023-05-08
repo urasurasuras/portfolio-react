@@ -1,13 +1,17 @@
 import React, { useRef, useState, useEffect } from "react";
+
 import { useLocation } from "react-router-dom";
-import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
+import { Container, Nav, Navbar, NavDropdown, Button } from "react-bootstrap";
+
 import "./Navbar.css";
 import { Endpoints } from "../variables/Endpoints";
+import Badge from "react-bootstrap/Badge";
 
-function NavbarComponent() {
+import { CookiesProvider, useCookies } from "react-cookie";
+
+function NavbarComponent(props) {
+  const [cookies, setCookie] = useCookies(["user"]);
+
   // Get location
   const location = useLocation();
   const locationPathname = location.pathname;
@@ -34,10 +38,14 @@ function NavbarComponent() {
 
   // Toggle navbar color while scrolling
   function navbarScrollColorHandler() {
+    // console.log(isADropDownExpanded);
+
     if (window.scrollY >= 90) {
       toggleNavbarColor(true);
     } else {
-      toggleNavbarColor(false);
+      if (!isADropDownExpanded) {
+        toggleNavbarColor(false);
+      }
     }
   }
 
@@ -48,23 +56,53 @@ function NavbarComponent() {
     setNavbarMobileTogggle(!navbarMobileTogggle);
   }
 
+  function setBgSolid() {
+    setHeaderBgOpacity("header-bg-solidOpaque");
+    window.removeEventListener("scroll", navbarScrollColorHandler);
+  }
+  function setBgVariable() {
+    navbarScrollColorHandler();
+    window.addEventListener("scroll", navbarScrollColorHandler);
+  }
   // Change navbar bg behavior based on location
   function navbarStyleBehavior() {
     if (locationPathname !== "/") {
       // If I'm not at home, set the navbar to allways be solid
       setAtHome(false);
-      console.log("Location not home", locationPathname);
-      setHeaderBgOpacity("header-bg-solidOpaque");
-      window.removeEventListener("scroll", navbarScrollColorHandler);
+      // console.log("Location not home", locationPathname);
+      setBgSolid();
     } else {
       // At home
       setAtHome(true);
-      console.log("Location home", locationPathname);
-      navbarScrollColorHandler();
+      // console.log("Location home", locationPathname);
+      setBgVariable();
+    }
+  }
+
+  const [isADropDownExpanded, setIsADropDownExpanded] = useState(false);
+  function handleNavDropdownToggle(isExpanded) {
+    // TODO: disable scroll when dropdown is expanded
+    // console.log(isExpanded);
+
+    setIsADropDownExpanded(isExpanded);
+    if (!atHome) return;
+    if (isExpanded) {
+      setHeaderBgOpacity("header-bg-fadeToOpaque");
+      window.removeEventListener("scroll", navbarScrollColorHandler);
+    } else {
+      setHeaderBgOpacity("header-bg-fadeToTransparent");
       window.addEventListener("scroll", navbarScrollColorHandler);
     }
   }
 
+  const newBadgeContent = (
+    <Badge pill bg="danger">
+      NEW!
+    </Badge>);
+
+
+  // console.log(newBadgeContent);
+  // console.log(newBadge.newBadge.newBadge.newBadge);
   return (
     <Navbar
       // If at home toggle navbar color on collapse toggle
@@ -84,6 +122,22 @@ function NavbarComponent() {
         <Navbar.Collapse id="basic-navbar-nav" align="end">
           <Nav className="ml-auto">
             {/* <Nav.Link href={Endpoints.About}>About</Nav.Link> */}
+            {/* <Button onClick={handleNewBadgeClear}>Clear</Button>
+            <Button onClick={handleNewBadgeMake}>Put</Button> */}
+
+            <NavDropdown
+              title="Demos"
+              id="basic-nav-dropdown"
+              className="basic-nav-dropdown"
+              onToggle={handleNavDropdownToggle}
+            >
+              <Nav.Link href={Endpoints.Demo} onClick={()=>{setCookie("visitedExpensesApp", true);}}>
+                Expenses App {cookies.visitedExpensesApp ? "" : newBadgeContent}
+              </Nav.Link>
+              <Nav.Link href={Endpoints.PersistentCounter} onClick={()=>{setCookie("visitedCounterApp", true);}}>
+                Persistent Counter {cookies.visitedCounterApp ? "" : newBadgeContent}
+              </Nav.Link>
+            </NavDropdown>
             <Nav.Link href={Endpoints.Portfolio}>Portfolio</Nav.Link>
             <Nav.Link href={Endpoints.ResumeSection}>Resume</Nav.Link>
             <Nav.Link href={Endpoints.Contact}>Contact</Nav.Link>
