@@ -1,0 +1,9 @@
+.rowflex {
+    padding: 20px;
+    width:50% !important;
+}
+@media (min-width: 576px){
+    .rowflex {
+        width: 25% !important;
+    }
+}

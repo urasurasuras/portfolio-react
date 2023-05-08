@@ -5,7 +5,7 @@ import "../styles.css";
 import Masthead from "../components/Masthead";
 import Portfolio from "../components/Portfolio";
 import Resume from "../components/Resume";
-import Contact from "../components/Contact";
+import Contacts from "../components/Contacts";
 
 import { CookiesProvider, useCookies } from "react-cookie";
 
@@ -21,7 +21,7 @@ function Home() {
       {/* <About /> */}
       <Portfolio />
       <Resume />
-      <Contact />
+      <Contacts />
     </div>
   );
 }
