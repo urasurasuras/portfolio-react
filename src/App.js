@@ -10,6 +10,9 @@ import Demo from "./modules/Demo";
 import Counter from "./components/Counter";
 import { Endpoints } from "./variables/Endpoints";
 
+import "bootstrap";
+import "./App.css";
+
 function App() {
   return (
     <BrowserRouter>

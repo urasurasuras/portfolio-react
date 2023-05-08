@@ -1,4 +1,4 @@
-import PortfolioItem from "./PortfolioItem";
+import PortfolioBox from "./PortfolioBox";
 import {Endpoints, Links} from "../variables/Endpoints";
 import { Link } from "react-router-dom";
 
@@ -7,21 +7,21 @@ function Portfolio() {
     <div id="portfolio">
       <div className="container-fluid p-0">
         <div className="row no-gutters">
-        <PortfolioItem
+        <PortfolioBox
             link={Links.it490}
             newTab
             image="assets/img/portfolio/fullsize/490.png"
             category="Web Application"
             name="System Integration"
           />
-          <PortfolioItem
+          <PortfolioBox
           link={Links.Hydrametry}
           newTab
           image="assets/img/portfolio/fullsize/HydraLogo.png"
           category="Game Development"
           name="Hydrametry Software"
         />
-        <PortfolioItem
+        <PortfolioBox
             link={Links.Source}
             newTab
             image="assets/img/portfolio/fullsize/github-logo.png"
@@ -29,20 +29,20 @@ function Portfolio() {
             name="Source to this web page"
           />
           
-          <PortfolioItem
+          <PortfolioBox
             link={Endpoints.Lodge}
             image="assets/img/portfolio/fullsize/lodge.png"
             category="Maya & Unreal Engine 4"
             name="Lodge"
           />
-          <PortfolioItem
+          <PortfolioBox
             link={Links.gf3d}
             newTab
             image="assets/img/portfolio/fullsize/gf3d.png"
             category="Vulkan"
             name="gf3d"
           />
-          <PortfolioItem
+          <PortfolioBox
             link={Links.GrooveCrusaders}
             newTab
             image="assets/img/portfolio/thumbnails/6.jpg"

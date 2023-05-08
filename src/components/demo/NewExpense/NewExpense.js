@@ -3,7 +3,7 @@ import ExpenseForm from "./ExpenseForm";
 import Card from "../UI/Card";
 
 import "./NewExpense.css";
-import { Button } from "bootstrap";
+import { Button } from "react-bootstrap";
 
 const NewExpenseDialogue = (props) => {
   function saveExpenseDataHandler(enteredExpenseData) {
@@ -21,7 +21,7 @@ const NewExpenseDialogue = (props) => {
 
   // Set content
   let displayContent = (
-    <button onClick={newExpenseClickHandler}>Add new expense</button>
+    <Button onClick={newExpenseClickHandler}>Add new expense</Button>
   );
   if (expenseToggle === true) {
     displayContent = (
