@@ -8,12 +8,13 @@ import Projects from "./modules/Projects";
 import Lodge from "./modules/Lodge";
 import Demo from "./modules/Demo";
 import Counter from "./components/Counter";
-import { Endpoints } from "./variables/Endpoints";
+import { Endpoints, version } from "./variables/Endpoints";
 
 import "bootstrap";
 import "./App.css";
 
 function App() {
+  console.log(process.env.REACT_APP_VERSION);
   return (
     <BrowserRouter>
       <Routes>
