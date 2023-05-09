@@ -27,3 +27,5 @@ export const ContactInfo = {
   Email: "uras.oran.htc@gmail.com",
   Phone: "+19739109277",
 };
+
+export const version = process.env.REACT_APP_VERSION;

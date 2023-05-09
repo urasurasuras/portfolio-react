@@ -1,6 +1,6 @@
 {
   "name": "portfolio-react",
-  "version": "0.1.0",
+  "version": "1.1.1",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
@@ -22,7 +22,11 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "patch-deploy": "npm version patch & git push",
+    "minor-deploy": "npm version patch & git push",
+    "major-deploy": "npm version major & git push",
+    "git-deploy": "npm version from-git & git push"
   },
   "eslintConfig": {
     "extends": [
