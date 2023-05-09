@@ -23,7 +23,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "npm version minor & git push"
+    "patch-deploy": "npm version patch & git push",
+    "minor-deploy": "npm version patch & git push",
+    "major-deploy": "npm version major & git push"
   },
   "eslintConfig": {
     "extends": [
