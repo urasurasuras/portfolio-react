@@ -14,7 +14,6 @@ import "bootstrap";
 import "./App.css";
 
 function App() {
-  console.log(process.env.REACT_APP_VERSION);
   return (
     <BrowserRouter>
       <Routes>

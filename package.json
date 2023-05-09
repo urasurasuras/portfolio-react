@@ -25,7 +25,8 @@
     "eject": "react-scripts eject",
     "patch-deploy": "npm version patch & git push",
     "minor-deploy": "npm version patch & git push",
-    "major-deploy": "npm version major & git push"
+    "major-deploy": "npm version major & git push",
+    "git-deploy": "npm version from-git & git push"
   },
   "eslintConfig": {
     "extends": [
