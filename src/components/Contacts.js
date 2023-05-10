@@ -27,12 +27,12 @@ function Contacts() {
           <ContactBox
             icon={<Phone size={iconSize} />}
             title="Phone"
-            href={ContactInfo.Phone}
+            href={"tel:" + ContactInfo.Phone}
           />
           <ContactBox
             icon={<EnvelopeAt size={iconSize} />}
             title="Email"
-            href={ContactInfo.Email}
+            href={"mailto:" + ContactInfo.Email}
           />
         </div>
       </div>
