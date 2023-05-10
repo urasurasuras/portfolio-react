@@ -22,17 +22,17 @@ function Contacts() {
           <ContactBox
             icon={<Linkedin size={iconSize} />}
             title="LinkedIn"
-            href={Links.Linkedin}
+            href={Links.LinkedIn}
           />
           <ContactBox
             icon={<Phone size={iconSize} />}
             title="Phone"
-            href={Links.Phone}
+            href={ContactInfo.Phone}
           />
           <ContactBox
             icon={<EnvelopeAt size={iconSize} />}
             title="Email"
-            href={Links.Email}
+            href={ContactInfo.Email}
           />
         </div>
       </div>
