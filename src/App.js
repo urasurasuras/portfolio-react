@@ -21,11 +21,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path={Endpoints.Projects} element={<Projects />} />
           <Route path={Endpoints.Lodge} element={<Lodge />} />
-          <Route
-            // onClick={demoClickHandler}
-            path={Endpoints.Demo}
-            element={<Demo />}
-          />
+          <Route path={Endpoints.Demo} element={<Demo />} />
           <Route path={Endpoints.PersistentCounter} element={<Counter />} />
         </Route>
       </Routes>

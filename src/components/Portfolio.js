@@ -2,6 +2,8 @@ import PortfolioBox from "./PortfolioBox";
 import {Endpoints, Links} from "../variables/Endpoints";
 import { Link } from "react-router-dom";
 
+import "./Portfolio.css"
+
 function Portfolio() {
   return (
     <div id="portfolio">
