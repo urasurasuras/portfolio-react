@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState, useEffect,useCallback } from "react";
 
 import { useLocation } from "react-router-dom";
 import { Container, Nav, Navbar, NavDropdown, Button } from "react-bootstrap";
@@ -8,6 +8,7 @@ import { Endpoints } from "../variables/Endpoints";
 import Badge from "react-bootstrap/Badge";
 
 import { CookiesProvider, useCookies } from "react-cookie";
+
 
 function NavbarComponent(props) {
   const [cookies, setCookie] = useCookies(["user"]);
@@ -37,8 +38,10 @@ function NavbarComponent(props) {
   }
 
   // Toggle navbar color while scrolling
-  function navbarScrollColorHandler() {
-    // console.log(isADropDownExpanded);
+  const navbarScrollColorHandler =  useCallback(() => {
+    console.log(isADropDownExpanded);
+
+    if (isADropDownExpanded) return;
 
     if (window.scrollY >= 90) {
       toggleNavbarColor(true);
@@ -47,7 +50,7 @@ function NavbarComponent(props) {
         toggleNavbarColor(false);
       }
     }
-  }
+  });
 
   // If mobile, then toggle bg color on collapse toggle
   const [navbarMobileTogggle, setNavbarMobileTogggle] = useState(true);
@@ -55,17 +58,30 @@ function NavbarComponent(props) {
     toggleNavbarColor(navbarMobileTogggle);
     setNavbarMobileTogggle(!navbarMobileTogggle);
   }
+  useEffect(() => {
+    const toggleListener = () => {
+      setIsADropDownExpanded(prev => !prev);
+    };
+
+    window.addEventListener('scroll', navbarScrollColorHandler);
+
+    return () => {
+      window.removeEventListener('scroll', navbarScrollColorHandler);
+    };
+  }, [isADropDownExpanded]);
 
   function setBgSolid() {
     setHeaderBgOpacity("header-bg-solidOpaque");
-    window.removeEventListener("scroll", navbarScrollColorHandler);
+    console.log("setting to solid");
+    // window.removeEventListener("scroll", navbarScrollColorHandler, true);
   }
   function setBgVariable() {
     navbarScrollColorHandler();
-    window.addEventListener("scroll", navbarScrollColorHandler);
+    // window.addEventListener("scroll", navbarScrollColorHandler, true);
   }
   // Change navbar bg behavior based on location
   function navbarStyleBehavior() {
+
     if (locationPathname !== "/") {
       // If I'm not at home, set the navbar to allways be solid
       setAtHome(false);
@@ -80,18 +96,19 @@ function NavbarComponent(props) {
   }
 
   const [isADropDownExpanded, setIsADropDownExpanded] = useState(false);
+  // var isADropDownExpanded = false;
+
   function handleNavDropdownToggle(isExpanded) {
     // TODO: disable scroll when dropdown is expanded
-    // console.log(isExpanded);
 
     setIsADropDownExpanded(isExpanded);
     if (!atHome) return;
     if (isExpanded) {
       setHeaderBgOpacity("header-bg-fadeToOpaque");
-      window.removeEventListener("scroll", navbarScrollColorHandler);
+      window.removeEventListener("scroll", navbarScrollColorHandler, true);
     } else {
       setHeaderBgOpacity("header-bg-fadeToTransparent");
-      window.addEventListener("scroll", navbarScrollColorHandler);
+      window.addEventListener("scroll", navbarScrollColorHandler, true);
     }
   }
 

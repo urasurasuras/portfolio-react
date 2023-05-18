@@ -1,7 +1,6 @@
 import "./ContactBox.css";
 
 function ContactBox(props) {
-  console.log(props.href);
   return (
     <div className="rowflex col-sm-3 text-center">
       <a className="d-block" href={props.href}>

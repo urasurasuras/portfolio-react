@@ -8,6 +8,7 @@ import Projects from "./modules/Projects";
 import Lodge from "./modules/Lodge";
 import Demo from "./modules/Demo";
 import Counter from "./components/Counter";
+import DebugCanvas from "./components/DebugCanvas"
 import { Endpoints, version } from "./variables/Endpoints";
 
 import "bootstrap";
@@ -23,6 +24,7 @@ function App() {
           <Route path={Endpoints.Lodge} element={<Lodge />} />
           <Route path={Endpoints.Demo} element={<Demo />} />
           <Route path={Endpoints.PersistentCounter} element={<Counter />} />
+          <Route path="/debugcanvas" element={<DebugCanvas />}/>
         </Route>
       </Routes>
     </BrowserRouter>
